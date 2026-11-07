@@ -20,19 +20,31 @@ public class ContaBancaria {
     double getSaldo() {
         return saldo;
     }
-    void depositar(double valor){
-        // this.saldo = this.saldo + valor;
-        this.saldo += valor;
-    }
-    boolean sacar(double valor){
-        if (valor<= this.saldo) {
-            this.saldo -= valor;
+    boolean depositar(double valor){
+        if(valor>0) {
+            // this.saldo = this.saldo + valor;
+            this.saldo += valor;
             return true;
         }else{
             return false;
         }
     }
+
+    boolean sacar(double valor){
+        if (valor<= this.saldo) {
+            this.saldo -= valor;
+            return true;
+        }else{
+            System.out.println("Saldo insuficiente");
+            return false;
+        }
+    }
     void exibirExtrato(){
-        System.out.println("Seu saldo atual é de R$" + this.saldo);
+        System.out.println("Número da conta: " + this.numero
+                + "\nTitular: "+ this.titular
+                + "\nSeu saldo atual é de R$"
+                + this.saldo);
+
+
     }
 }
